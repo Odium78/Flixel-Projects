@@ -1,0 +1,29 @@
+-main ApplicationMain 
+-cp C:/Users/Dell/flixel-tools/flixel/5,2,1
+-D flixel=5.2.1
+--macro openfl.utils._internal.ExtraParamsMacro.include()
+-cp C:/Users/Dell/flixel-tools/openfl/9,2,0/src
+-D openfl=9.2.0
+--macro lime._internal.macros.DefineMacro.run()
+-cp C:/Users/Dell/flixel-tools/lime/8,0,0/src
+-D lime=8.0.0
+-cp source
+-D tools=8.0.0
+-D lime-canvas
+-D howlerjs
+-D no-compilation
+-D openfl-html5
+-D lime-webgl
+-D lime-dom
+-D lime-howlerjs
+-D lime-html5
+-D openfl-disable-handle-error
+-D html5
+-D web
+--remap flash:openfl
+--macro flixel.system.macros.FlxDefines.run()
+--connect
+6000
+-js export/html5/bin/game-jam-template.js
+-cp export/html5/haxe
+-D html5
