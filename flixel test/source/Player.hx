@@ -7,19 +7,6 @@ class Player extends FlxSprite
 {
 	final SPEED:Int = 100;
 
-	public function new(x:Int = 0, y:Int = 0)
-	{
-		super(x, y);
-		loadGraphic("assets/images/dude.png", true, 32, 48);
-		drag.x = SPEED * 4;
-
-		animation.add("run", [0, 1, 2, 3], 12);
-		animation.add("idle", [0], 12, false);
-
-		setFacingFlip(LEFT, false, false);
-		setFacingFlip(RIGHT, true, false);
-	}
-
 	function movement()
 	{
 		final left = FlxG.keys.anyPressed([LEFT, A]);
@@ -49,6 +36,19 @@ class Player extends FlxSprite
 			velocity.x = SPEED;
 			facing = RIGHT;
 		}
+	}
+
+	public function new(x:Int = 0, y:Int = 0)
+	{
+		super(x, y);
+		loadGraphic("assets/images/dude.png", true, 32, 48);
+		drag.x = SPEED * 4;
+
+		animation.add("run", [0, 1, 2, 3], 12);
+		animation.add("idle", [0], 12, false);
+
+		setFacingFlip(LEFT, false, false);
+		setFacingFlip(RIGHT, true, false);
 	}
 
 	override function update(elapsed:Float)
