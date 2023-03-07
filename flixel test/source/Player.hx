@@ -1,11 +1,28 @@
 package;
 
 import flixel.FlxG;
+import flixel.FlxObject;
 import flixel.FlxSprite;
 
 class Player extends FlxSprite
 {
 	final SPEED:Int = 100;
+	final GRAVITY:Int = 600;
+
+	public function new(x:Int = 0, y:Int = 0)
+	{
+		super(x, y);
+		loadGraphic("assets/images/dude.png", true, 32, 48);
+		drag.x = SPEED * 4;
+
+		animation.add("run", [0, 1, 2, 3], 12);
+		animation.add("idle", [0], 12, false);
+
+		setFacingFlip(LEFT, false, false);
+		setFacingFlip(RIGHT, true, false);
+
+		acceleration.y = GRAVITY;
+	}
 
 	function movement()
 	{
@@ -38,21 +55,19 @@ class Player extends FlxSprite
 		}
 	}
 
-	public function new(x:Int = 0, y:Int = 0)
+	function jumping()
 	{
-		super(x, y);
-		loadGraphic("assets/images/dude.png", true, 32, 48);
-		drag.x = SPEED * 4;
+		final jump = FlxG.keys.anyPressed([UP, W, SPACE]);
 
-		animation.add("run", [0, 1, 2, 3], 12);
-		animation.add("idle", [0], 12, false);
-
-		setFacingFlip(LEFT, false, false);
-		setFacingFlip(RIGHT, true, false);
+		if (jump && isTouching(FLOOR))
+		{
+			velocity.y = -GRAVITY / 1.5;
+		}
 	}
 
 	override function update(elapsed:Float)
 	{
+		jumping();
 		super.update(elapsed);
 		movement();
 	}
