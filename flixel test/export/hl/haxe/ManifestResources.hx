@@ -44,12 +44,15 @@ import sys.FileSystem;
 
 			rootPath = Reflect.field (config, "rootPath");
 
+<<<<<<< HEAD
 			if(!StringTools.endsWith (rootPath, "/")) {
 
 				rootPath += "/";
 
 			}
 
+=======
+>>>>>>> a480e176eacd3df5281c53d8739dc78478c634d8
 		}
 
 		if (rootPath == null) {
@@ -130,12 +133,21 @@ null
 
 #elseif (desktop || cpp)
 
+<<<<<<< HEAD
 @:keep @:file("C:/Users/Dell/flixel-tools/flixel/5,2,2/assets/sounds/beep.ogg") @:noCompletion #if display private #end class __ASSET__flixel_sounds_beep_ogg extends haxe.io.Bytes {}
 @:keep @:file("C:/Users/Dell/flixel-tools/flixel/5,2,2/assets/sounds/flixel.ogg") @:noCompletion #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends haxe.io.Bytes {}
 @:keep @:font("C:/Users/Dell/flixel-tools/flixel/5,2,2/assets/fonts/nokiafc22.ttf") @:noCompletion #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font {}
 @:keep @:font("C:/Users/Dell/flixel-tools/flixel/5,2,2/assets/fonts/monsterrat.ttf") @:noCompletion #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font {}
 @:keep @:image("C:/Users/Dell/flixel-tools/flixel/5,2,2/assets/images/ui/button.png") @:noCompletion #if display private #end class __ASSET__flixel_images_ui_button_png extends lime.graphics.Image {}
 @:keep @:image("C:/Users/Dell/flixel-tools/flixel/5,2,2/assets/images/logo/default.png") @:noCompletion #if display private #end class __ASSET__flixel_images_logo_default_png extends lime.graphics.Image {}
+=======
+@:keep @:file("C:/HaxeToolkit/haxe/lib/flixel/5,2,1/assets/sounds/beep.ogg") @:noCompletion #if display private #end class __ASSET__flixel_sounds_beep_ogg extends haxe.io.Bytes {}
+@:keep @:file("C:/HaxeToolkit/haxe/lib/flixel/5,2,1/assets/sounds/flixel.ogg") @:noCompletion #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends haxe.io.Bytes {}
+@:keep @:font("C:/HaxeToolkit/haxe/lib/flixel/5,2,1/assets/fonts/nokiafc22.ttf") @:noCompletion #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font {}
+@:keep @:font("C:/HaxeToolkit/haxe/lib/flixel/5,2,1/assets/fonts/monsterrat.ttf") @:noCompletion #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font {}
+@:keep @:image("C:/HaxeToolkit/haxe/lib/flixel/5,2,1/assets/images/ui/button.png") @:noCompletion #if display private #end class __ASSET__flixel_images_ui_button_png extends lime.graphics.Image {}
+@:keep @:image("C:/HaxeToolkit/haxe/lib/flixel/5,2,1/assets/images/logo/default.png") @:noCompletion #if display private #end class __ASSET__flixel_images_logo_default_png extends lime.graphics.Image {}
+>>>>>>> a480e176eacd3df5281c53d8739dc78478c634d8
 
 
 
