@@ -1,12 +1,10 @@
 package;
 
 import flixel.FlxG;
-import flixel.FlxState;
 import flixel.group.FlxGroup;
-import flixel.text.FlxText;
 import flixel.util.FlxCollision;
 
-class PlayState extends FlxState
+class PlayState extends LevelState
 {
 	var levelBounds:FlxGroup;
 	var player:Player;
@@ -15,7 +13,9 @@ class PlayState extends FlxState
 	{
 		super.create();
 		bgColor = 0xffcccccc;
-		player = new Player();
+
+		createLevel();
+		player = new Player(500, 200);
 
 		add(player);
 
