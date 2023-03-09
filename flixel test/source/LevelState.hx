@@ -8,7 +8,7 @@ class LevelState extends FlxState
 {
 	function createLevel()
 	{
-		final map = new TiledMap("assets/data/level01.tmx");
+		final map = new TiledMap("assets/data/levelOne.tmx");
 		final platformsLayer:TiledObjectLayer = cast(map.getLayer("platforms"));
 		final platformsGroup = new FlxTypedGroup<FlxSprite>();
 
