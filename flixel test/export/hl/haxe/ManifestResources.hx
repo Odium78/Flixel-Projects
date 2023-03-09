@@ -111,8 +111,8 @@ null
 #if flash
 
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_data_data_goes_here_txt extends null { }
+@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_data_level01_tmx extends null { }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_data_levelassets_tsx extends null { }
-@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_data_levelone_tmx extends null { }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_images_bomb_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_images_dude_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_images_images_go_here_txt extends null { }

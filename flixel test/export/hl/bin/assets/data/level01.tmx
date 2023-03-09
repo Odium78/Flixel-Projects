@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="left-up" width="80" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="6">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="left-up" width="80" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="5">
  <tileset firstgid="1" source="levelAssets.tsx"/>
- <objectgroup id="2" name="platform">
-  <object id="1" x="640" y="416" width="32" height="48"/>
-  <object id="3" gid="1" x="160" y="608" width="400" height="32"/>
-  <object id="4" gid="1" x="640" y="496" width="400" height="32"/>
-  <object id="5" gid="1" x="192" y="400" width="400" height="32"/>
+ <objectgroup id="2" name="platforms">
+  <object id="2" gid="1" x="160" y="640" width="400" height="32"/>
+  <object id="3" gid="1" x="640" y="544" width="400" height="32"/>
+  <object id="4" gid="1" x="176" y="400" width="400" height="32"/>
  </objectgroup>
- <objectgroup id="3" name="helpers"/>
+ <objectgroup id="3" name="helpers">
+  <object id="1" x="0" y="672" width="32" height="48"/>
+ </objectgroup>
 </map>
