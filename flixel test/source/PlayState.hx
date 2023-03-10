@@ -10,6 +10,6 @@ class PlayState extends LevelState
 	{
 		super.create();
 		bgColor = 0xffcccccc;
-		createLevel("level01", {x: 500, y: 200});
+		createLevel("level01", {x: 48, y: 672});
 	}
 }

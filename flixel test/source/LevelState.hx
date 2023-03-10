@@ -11,6 +11,7 @@ class LevelState extends FlxState
 {
 	var levelBounds:FlxGroup;
 	var player:Player;
+	final platformsGroup = new FlxTypedGroup<FlxSprite>();
 
 	override public function create()
 	{
@@ -21,12 +22,12 @@ class LevelState extends FlxState
 	{
 		final map = new TiledMap('assets/data/$levelName.tmx');
 		final platformsLayer:TiledObjectLayer = cast(map.getLayer("platforms"));
-		final platformsGroup = new FlxTypedGroup<FlxSprite>();
 
 		for (platform in platformsLayer.objects)
 		{
 			final platformSprites = new FlxSprite(platform.x, platform.y);
 			platformSprites.loadGraphic("assets/images/platform.png", false, 400, 32);
+			platformSprites.immovable = true;
 			platformsGroup.add(platformSprites);
 		}
 
@@ -42,5 +43,6 @@ class LevelState extends FlxState
 	{
 		super.update(elapsed);
 		FlxG.collide(player, levelBounds);
+		FlxG.collide(player, platformsGroup);
 	}
 }
