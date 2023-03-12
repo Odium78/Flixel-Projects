@@ -1,3 +1,6 @@
+package;
+
+import flixel.FlxCamera.FlxCameraFollowStyle;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -13,7 +16,7 @@ class LevelState extends FlxState
 	var player:Player;
 	final platformsGroup = new FlxTypedGroup<FlxSprite>();
 	final starsGroup = new FlxTypedGroup<FlxSprite>();
-	var score = 0;
+	var hud:Hud;
 
 	override public function create()
 	{
@@ -30,6 +33,9 @@ class LevelState extends FlxState
 		add(player);
 
 		levelBounds = FlxCollision.createCameraWall(FlxG.camera, true, 1);
+
+		hud = new Hud();
+		add(hud);
 	}
 
 	function createStars(map:TiledMap)
@@ -64,9 +70,8 @@ class LevelState extends FlxState
 
 	function collectStar(_, star:FlxSprite)
 	{
+		hud.incrementScore();
 		star.kill();
-		score++;
-		trace("Score: ", score);
 	}
 
 	override public function update(elapsed:Float)
