@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="14">
- <tileset firstgid="1" source="levelAssets.tsx"/>
+ <tileset firstgid="1" source="levelAssets.al"/>
  <objectgroup id="2" name="platforms">
   <object id="5" gid="1" x="0" y="128" width="400" height="32"/>
   <object id="6" gid="1" x="160" y="240" width="400" height="32"/>

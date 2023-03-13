@@ -112,9 +112,9 @@ null
 #if flash
 
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_data_data_goes_here_txt extends null { }
-@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_data_level01_tmx extends null { }
-@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_data_level02_tmx extends null { }
-@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_data_levelassets_tsx extends null { }
+@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_data_level01_obg extends null { }
+@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_data_level02_obg extends null { }
+@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_data_levelassets_al extends null { }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_fonts_prompt_ttf extends null { }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_images_bomb_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_images_dude_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }

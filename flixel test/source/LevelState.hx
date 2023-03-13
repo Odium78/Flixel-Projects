@@ -28,7 +28,7 @@ class LevelState extends FlxState
 
 	function createLevel(levelName:String, playerPos:{x:Int, y:Int})
 	{
-		final map = new TiledMap('assets/data/$levelName.tmx');
+		final map = new TiledMap('assets/data/$levelName.obg');
 
 		createPlatforms(map);
 		createStars(map);
