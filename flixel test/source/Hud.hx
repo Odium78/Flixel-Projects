@@ -6,14 +6,15 @@ import flixel.text.FlxText;
 class Hud extends FlxTypedGroup<FlxSprite>
 {
 	var scoreText:FlxText;
-	var score = 0;
+
+	public var score = 0;
 
 	public function new()
 	{
 		super();
-		// FlxAssets.FONT_DEFAULT = "assets/fonts/Prompt.ttf";
+		FlxAssets.FONT_DEFAULT = "assets/fonts/Prompt.ttf";
 		scoreText = new FlxText(31, 32, 131, "Score: 0", 20);
-		scoreText.setFormat("assets/fonts/Prompt.ttf");
+		// scoreText.setFormat("assets/fonts/Prompt.ttf");
 		scoreText.scrollFactor.set(0, 0);
 		add(scoreText);
 	}

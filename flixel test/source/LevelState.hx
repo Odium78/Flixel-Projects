@@ -17,6 +17,9 @@ class LevelState extends FlxState
 	final platformsGroup = new FlxTypedGroup<FlxSprite>();
 	final starsGroup = new FlxTypedGroup<FlxSprite>();
 	var hud:Hud;
+	var totalStars = 0;
+
+	public var nextLevel:Class<LevelState>;
 
 	override public function create()
 	{
@@ -42,6 +45,7 @@ class LevelState extends FlxState
 	{
 		final starsLayer:TiledObjectLayer = cast(map.getLayer("stars"));
 
+		totalStars = starsLayer.objects.length;
 		for (stars in starsLayer.objects)
 		{
 			final starsSprites = new FlxSprite(stars.x, (stars.y - stars.height));
@@ -72,6 +76,12 @@ class LevelState extends FlxState
 	{
 		hud.incrementScore();
 		star.kill();
+
+		if (hud.score == totalStars)
+		{
+			final levelComplete = new LevelComplete(nextLevel);
+			openSubState(levelComplete);
+		}
 	}
 
 	override public function update(elapsed:Float)
