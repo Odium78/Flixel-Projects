@@ -28,7 +28,7 @@ class LevelState extends FlxState
 		player = new Player(playerPos.x, playerPos.y);
 		add(player);
 
-		FlxG.camera.follow(player, LOCKON);
+		FlxG.camera.follow(player, LOCKON, 1);
 	}
 
 	// function createLevel(levelName:String, playerPos:{x:Int, y:Int})

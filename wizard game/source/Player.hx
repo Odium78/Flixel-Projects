@@ -15,8 +15,8 @@ class Player extends FlxSprite
 		loadGraphic("assets/images/wizard.png", true, 24, 24);
 		drag.x = SPEED * 4;
 
-		animation.add("run", [0, 1, 2], 10);
-		animation.add("idle", [0], 12, false);
+		animation.add("run", [0, 1, 0, 2], 9);
+		animation.add("idle", [0], 9, false);
 
 		setFacingFlip(LEFT, true, false);
 		setFacingFlip(RIGHT, false, false);
