@@ -11,6 +11,6 @@ class Level01 extends LevelState
 		super.create();
 		bgColor = 0xffcccccc;
 		// nextLevel = Level02;
-		createLevel({x: 48, y: 672});
+		createLevel("level01", {x: 24, y: 432});
 	}
 }
