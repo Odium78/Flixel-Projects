@@ -6,6 +6,7 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.addons.editors.tiled.TiledMap;
 import flixel.addons.editors.tiled.TiledObjectLayer;
+import flixel.effects.particles.FlxEmitter.FlxTypedEmitter;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxGroup;
 import flixel.util.FlxCollision;
@@ -14,6 +15,7 @@ class LevelState extends FlxState
 {
 	var levelBounds:FlxGroup;
 	var player:Player;
+	var platformsGroup:FlxTypedGroup<FlxSprite>;
 
 	// final platformsGroup = new FlxTypedGroup<FlxSprite>();
 	// final starsGroup = new FlxTypedGroup<FlxSprite>();
@@ -21,14 +23,28 @@ class LevelState extends FlxState
 	// var totalStars = 0;
 	// public var nextLevel:Class<LevelState>;
 
-	function createLevel(playerPos:{x:Int, y:Int})
+	function createLevel(levelName:String, playerPos:{x:Int, y:Int})
 	{
 		bgColor = 0xffcccccc;
-		levelBounds = FlxCollision.createCameraWall(FlxG.camera, true, 1);
+		final map = new TiledMap('assets/data/$levelName.tmx');
+		createPlatforms(map);
 		player = new Player(playerPos.x, playerPos.y);
 		add(player);
 
-		FlxG.camera.follow(player, LOCKON);
+		FlxG.camera.follow(player, LOCKON, 1);
+	}
+
+	function createPlatforms(map:TiledMap)
+	{
+		final platformsLayer:TiledObjectLayer = cast(map.getLayer("platforms"));
+		for (platform in platformsLayer.objects)
+		{
+			final platformSprites = new FlxSprite(platform.x, (platform.y - platform.height));
+			platformSprites.loadGraphic("assets/images/cobble01.png", false, 24, 24);
+			platformSprites.immovable = true;
+			platformsGroup.add(platformSprites);
+		}
+		add(platformsGroup);
 	}
 
 	// function createLevel(levelName:String, playerPos:{x:Int, y:Int})
@@ -81,8 +97,7 @@ class LevelState extends FlxState
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		FlxG.collide(player, levelBounds);
-		// FlxG.collide(player, platformsGroup);
+		FlxG.collide(player, platformsGroup);
 		// FlxG.overlap(player, starsGroup, collectStar);
 	}
 }
