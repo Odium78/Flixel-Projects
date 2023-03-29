@@ -1,0 +1,79 @@
+package;
+
+import flixel.FlxG;
+import flixel.FlxSprite;
+
+class Player extends FlxSprite
+{
+	final SPEED:Int = 100;
+	final GRAVITY:Int = 600;
+
+	public function new(x:Int = 0, y:Int = 0)
+	{
+		super(x, y);
+		loadGraphic("assets/images/player.png", true, 48, 48);
+		width = 28;
+		height = 32;
+		offset.set(10, 5);
+		drag.x = SPEED * 4;
+
+		animation.add("run", [0, 1, 2, 3, 4, 5], 10);
+		animation.add("idle", [16, 17, 18, 19, 20], 10, false);
+		animation.add("jump", [8, 9], 10);
+
+		setFacingFlip(LEFT, true, false);
+		setFacingFlip(RIGHT, false, false);
+
+		acceleration.y = GRAVITY;
+	}
+
+	function movement()
+	{
+		var left = FlxG.keys.anyPressed([LEFT, A]);
+		var right = FlxG.keys.anyPressed([RIGHT, D]);
+
+		if ((left || right) && !(left && right))
+		{
+			animation.play("run");
+		}
+		else
+		{
+			animation.play("idle");
+		}
+
+		if (left && right)
+		{
+			velocity.x = 0;
+			animation.play("idle");
+		}
+		else if (left)
+		{
+			velocity.x = -SPEED;
+			facing = LEFT;
+		}
+		else if (right)
+		{
+			velocity.x = SPEED;
+			facing = RIGHT;
+		}
+	}
+
+	function jumping()
+	{
+		final jump = FlxG.keys.anyPressed([UP, W, SPACE]);
+
+		if (jump && isTouching(FLOOR))
+		{
+			animation.stop();
+			velocity.y = -GRAVITY / 1.8;
+			animation.play("jump");
+		}
+	}
+
+	override public function update(elapsed:Float)
+	{
+		jumping();
+		super.update(elapsed);
+		movement();
+	}
+}
