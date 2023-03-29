@@ -20,7 +20,7 @@ class ApplicationMain
 
 		#if (js && html5)
 		#if (munit || utest)
-		lime.system.System.embed("ShooterGame", null, 1280, 720);
+		lime.system.System.embed("ShooterGame", null, 1280, 768);
 		#end
 		#else
 		create(null);
@@ -35,7 +35,7 @@ class ApplicationMain
 		ManifestResources.init(config);
 		#end
 
-		app.meta["build"] = "26";
+		app.meta["build"] = "27";
 		app.meta["company"] = "ArrowRoot";
 		app.meta["file"] = "ShooterGame";
 		app.meta["name"] = "";
@@ -54,7 +54,7 @@ class ApplicationMain
 			element: null,
 			frameRate: 60,
 			#if !web fullscreen: false, #end
-			height: 720,
+			height: 768,
 			hidden: #if munit true #else false #end,
 			maximized: false,
 			minimized: false,
