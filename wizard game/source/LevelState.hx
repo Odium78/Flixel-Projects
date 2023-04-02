@@ -15,17 +15,16 @@ class LevelState extends FlxState
 {
 	var levelBounds:FlxGroup;
 	var player:Player;
-	var platformsGroup:FlxTypedGroup<FlxSprite>;
+	var platformsGroup = new FlxTypedGroup<FlxSprite>();
 
-	// final platformsGroup = new FlxTypedGroup<FlxSprite>();
-	// final starsGroup = new FlxTypedGroup<FlxSprite>();
-	// var hud:Hud;
-	// var totalStars = 0;
-	// public var nextLevel:Class<LevelState>;
+	override public function new()
+	{
+		super.create();
+		bgColor = 0xffcccccc;
+	}
 
 	function createLevel(levelName:String, playerPos:{x:Int, y:Int})
 	{
-		bgColor = 0xffcccccc;
 		final map = new TiledMap('assets/data/$levelName.tmx');
 		createPlatforms(map);
 		player = new Player(playerPos.x, playerPos.y);
