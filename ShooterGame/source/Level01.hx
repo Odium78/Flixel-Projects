@@ -10,6 +10,6 @@ class Level01 extends LevelState
 	{
 		super.create();
 		bgColor = 0xffcccccc;
-		makeLevel({x: 24, y: 24});
+		makeLevel("assets/data/level01.tmx", {x: 24, y: 24});
 	}
 }

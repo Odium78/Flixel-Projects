@@ -1,14 +1,17 @@
 package;
 
 import flixel.FlxG;
+import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.addons.editors.tiled.TiledMap;
+import flixel.addons.editors.tiled.TiledTileLayer;
 import flixel.group.FlxGroup;
+import flixel.tile.FlxTilemap;
 import flixel.util.FlxCollision;
 
 class LevelState extends FlxState
 {
 	var player:Player;
-	var levelBounds:FlxGroup;
 	var bullet:Bullet;
 
 	override public function create()
@@ -16,12 +19,12 @@ class LevelState extends FlxState
 		bgColor = 0xffcccccc;
 	}
 
-	function makeLevel(playerPos:{x:Int, y:Int})
+	function makeLevel(levelPath:String, playerPos:{x:Int, y:Int})
 	{
+		final map = new TiledMap(levelPath);
+
 		player = new Player(playerPos.x, playerPos.y);
 		add(player);
-
-		levelBounds = FlxCollision.createCameraWall(FlxG.camera, true, 1);
 	}
 
 	function shoot()
@@ -48,7 +51,6 @@ class LevelState extends FlxState
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		FlxG.collide(player, levelBounds);
 		shoot();
 	}
 }
