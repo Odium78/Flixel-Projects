@@ -1,6 +1,5 @@
 package;
 
-import flixel.FlxState;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -11,12 +10,12 @@ import flixel.addons.editors.tiled.TiledMap;
 import flixel.addons.editors.tiled.TiledObject;
 import flixel.addons.editors.tiled.TiledObjectLayer;
 import flixel.addons.editors.tiled.TiledTileLayer;
-import flixel.addons.editors.tiled.TiledTileSet;
 import flixel.addons.editors.tiled.TiledTilePropertySet;
+import flixel.addons.editors.tiled.TiledTileSet;
+import flixel.addons.tile.FlxTileSpecial;
+import flixel.addons.tile.FlxTilemapExt;
 import flixel.group.FlxGroup;
 import flixel.tile.FlxTilemap;
-import flixel.addons.tile.FlxTilemapExt;
-import flixel.addons.tile.FlxTileSpecial;
 import haxe.io.Path;
 
 /**
@@ -26,7 +25,7 @@ class TiledLevel extends TiledMap
 {
 	// For each "Tile Layer" in the map, you must define a "tileset" property which contains the name of a tile sheet image
 	// used to draw tiles in that layer (without file extension). The image file must be located in the directory specified bellow.
-	inline static var c_PATH_LEVEL_TILESHEETS = "assets/tiled/";
+	inline static var c_PATH_LEVEL_TILESHEETS = "assets/images/";
 
 	// Array of tilemaps used for collision
 	public var foregroundTiles:FlxGroup;
@@ -167,7 +166,7 @@ class TiledLevel extends TiledMap
 		var tileImagesSource:TiledImageTile = tilesImageCollection.getImageSourceByGid(object.gid);
 
 		// decorative sprites
-		var levelsDir:String = "assets/tiled/";
+		var levelsDir:String = "assets/images/";
 
 		var decoSprite:FlxSprite = new FlxSprite(0, 0, levelsDir + tileImagesSource.source);
 		if (decoSprite.width != object.width || decoSprite.height != object.height)
@@ -209,6 +208,23 @@ class TiledLevel extends TiledMap
 		// objects in tiled are aligned bottom-left (top-left in flixel)
 		if (o.gid != -1)
 			y -= g.map.getGidOwner(o.gid).tileHeight;
+
+		switch (o.type.toLowerCase())
+		{
+			case "player_start":
+				var player = new Player(x, y);
+				FlxG.camera.follow(player);
+				state.player = player;
+				group.add(player);
+
+			case "nxtlvl":
+				// Create the level exit
+				var exit = new FlxSprite(x, y);
+				exit.makeGraphic(32, 32, 0xff3f3f3f);
+				exit.exists = false;
+				state.exit = exit;
+				group.add(exit);
+		}
 	}
 
 	public function loadImages()

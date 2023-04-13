@@ -11,17 +11,11 @@ import flixel.util.FlxCollision;
 
 class LevelState extends FlxState
 {
-<<<<<<< HEAD
-	var player:Player;
-	var bullet:Bullet;
-=======
-	public var level:TiledLevel;
-
 	public var player:Player;
 	public var levelBounds:FlxGroup;
 	public var bullet:Bullet;
 	public var bullets = new FlxTypedGroup<FlxSprite>();
->>>>>>> 0553b00de2e34b897be14decac97461baac1c3c1
+	public var level:TiledLevel;
 
 	override public function create()
 	{
@@ -31,17 +25,10 @@ class LevelState extends FlxState
 
 	function makeLevel(levelPath:String, playerPos:{x:Int, y:Int})
 	{
-<<<<<<< HEAD
-		final map = new TiledMap(levelPath);
-
-=======
-		level = new TiledLevel("assets/data/level.tmx", this);
->>>>>>> 0553b00de2e34b897be14decac97461baac1c3c1
-		player = new Player(playerPos.x, playerPos.y);
-
-		add(level.objectsLayer);
+		level = new TiledLevel("assets/tiled/level.tmx", this);
 		add(level.backgroundLayer);
-		add(player);
+		add(level.foregroundTiles);
+		add(level.objectsLayer);
 	}
 
 	function shoot()
@@ -76,11 +63,7 @@ class LevelState extends FlxState
 	{
 		shoot();
 		super.update(elapsed);
-<<<<<<< HEAD
-		shoot();
-=======
 		FlxG.collide(player, levelBounds);
 		FlxG.overlap(levelBounds, bullets, impact);
->>>>>>> 0553b00de2e34b897be14decac97461baac1c3c1
 	}
 }
