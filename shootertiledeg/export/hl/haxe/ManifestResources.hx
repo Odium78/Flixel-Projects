@@ -44,12 +44,15 @@ import sys.FileSystem;
 
 			rootPath = Reflect.field (config, "rootPath");
 
+<<<<<<< HEAD
 			if(!StringTools.endsWith (rootPath, "/")) {
 
 				rootPath += "/";
 
 			}
 
+=======
+>>>>>>> bcd7e95565a8b20d3be05320cb7ae3af1a3c9edc
 		}
 
 		if (rootPath == null) {
@@ -112,6 +115,10 @@ null
 
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_data_data_goes_here_txt extends null { }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_images_images_go_here_txt extends null { }
+<<<<<<< HEAD
+=======
+@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_images_soldier_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+>>>>>>> bcd7e95565a8b20d3be05320cb7ae3af1a3c9edc
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_music_music_goes_here_txt extends null { }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_sounds_sounds_go_here_txt extends null { }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_tiled_coin_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -132,12 +139,21 @@ null
 
 #elseif (desktop || cpp)
 
+<<<<<<< HEAD
 @:keep @:file("C:/Users/Dell/flixel-tools/flixel/5,2,2/assets/sounds/beep.ogg") @:noCompletion #if display private #end class __ASSET__flixel_sounds_beep_ogg extends haxe.io.Bytes {}
 @:keep @:file("C:/Users/Dell/flixel-tools/flixel/5,2,2/assets/sounds/flixel.ogg") @:noCompletion #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends haxe.io.Bytes {}
 @:keep @:font("C:/Users/Dell/flixel-tools/flixel/5,2,2/assets/fonts/nokiafc22.ttf") @:noCompletion #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font {}
 @:keep @:font("C:/Users/Dell/flixel-tools/flixel/5,2,2/assets/fonts/monsterrat.ttf") @:noCompletion #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font {}
 @:keep @:image("C:/Users/Dell/flixel-tools/flixel/5,2,2/assets/images/ui/button.png") @:noCompletion #if display private #end class __ASSET__flixel_images_ui_button_png extends lime.graphics.Image {}
 @:keep @:image("C:/Users/Dell/flixel-tools/flixel/5,2,2/assets/images/logo/default.png") @:noCompletion #if display private #end class __ASSET__flixel_images_logo_default_png extends lime.graphics.Image {}
+=======
+@:keep @:file("C:/HaxeToolkit/haxe/lib/flixel/5,2,1/assets/sounds/beep.ogg") @:noCompletion #if display private #end class __ASSET__flixel_sounds_beep_ogg extends haxe.io.Bytes {}
+@:keep @:file("C:/HaxeToolkit/haxe/lib/flixel/5,2,1/assets/sounds/flixel.ogg") @:noCompletion #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends haxe.io.Bytes {}
+@:keep @:font("C:/HaxeToolkit/haxe/lib/flixel/5,2,1/assets/fonts/nokiafc22.ttf") @:noCompletion #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font {}
+@:keep @:font("C:/HaxeToolkit/haxe/lib/flixel/5,2,1/assets/fonts/monsterrat.ttf") @:noCompletion #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font {}
+@:keep @:image("C:/HaxeToolkit/haxe/lib/flixel/5,2,1/assets/images/ui/button.png") @:noCompletion #if display private #end class __ASSET__flixel_images_ui_button_png extends lime.graphics.Image {}
+@:keep @:image("C:/HaxeToolkit/haxe/lib/flixel/5,2,1/assets/images/logo/default.png") @:noCompletion #if display private #end class __ASSET__flixel_images_logo_default_png extends lime.graphics.Image {}
+>>>>>>> bcd7e95565a8b20d3be05320cb7ae3af1a3c9edc
 
 
 
