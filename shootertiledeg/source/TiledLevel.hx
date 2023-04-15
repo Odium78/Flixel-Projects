@@ -10,12 +10,12 @@ import flixel.addons.editors.tiled.TiledMap;
 import flixel.addons.editors.tiled.TiledObject;
 import flixel.addons.editors.tiled.TiledObjectLayer;
 import flixel.addons.editors.tiled.TiledTileLayer;
-import flixel.addons.editors.tiled.TiledTileSet;
 import flixel.addons.editors.tiled.TiledTilePropertySet;
+import flixel.addons.editors.tiled.TiledTileSet;
+import flixel.addons.tile.FlxTileSpecial;
+import flixel.addons.tile.FlxTilemapExt;
 import flixel.group.FlxGroup;
 import flixel.tile.FlxTilemap;
-import flixel.addons.tile.FlxTilemapExt;
-import flixel.addons.tile.FlxTileSpecial;
 import haxe.io.Path;
 
 /**
@@ -74,7 +74,11 @@ class TiledLevel extends TiledMap
 			}
 
 			if (tileSet == null)
-				throw "Tileset '" + tileSheetName + "' not found. Did you misspell the 'tilesheet' property in '" + tileLayer.name + "' layer?";
+				throw "Tileset '"
+					+ tileSheetName
+					+ "' not found. Did you misspell the 'tilesheet' property in '"
+					+ tileLayer.name
+					+ "' layer?";
 
 			var imagePath = new Path(tileSet.imageSource);
 			var processedPath = c_PATH_LEVEL_TILESHEETS + imagePath.file + "." + imagePath.ext;
@@ -97,10 +101,7 @@ class TiledLevel extends TiledMap
 				var tileLayer:TiledTileLayer = cast layer;
 				tilemap.setSpecialTiles([
 					for (tile in tileLayer.tiles)
-						if (tile != null && specialTiles.exists(tile.tileID))
-							getAnimatedTile(specialTiles[tile.tileID], tileset)
-						else
-							null
+						if (tile != null && specialTiles.exists(tile.tileID)) getAnimatedTile(specialTiles[tile.tileID], tileset) else null
 				]);
 			}
 
@@ -125,7 +126,8 @@ class TiledLevel extends TiledMap
 		var n:Int = props.animationFrames.length;
 		var offset = Std.random(n);
 		special.addAnimation([
-			for (i in 0...n) props.animationFrames[(i + offset) % n].tileID + tileset.firstGID
+			for (i in 0...n)
+				props.animationFrames[(i + offset) % n].tileID + tileset.firstGID
 		], (1000 / props.animationFrames[0].duration));
 		return special;
 	}
