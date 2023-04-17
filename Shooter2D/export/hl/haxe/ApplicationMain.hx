@@ -35,7 +35,7 @@ class ApplicationMain
 		ManifestResources.init(config);
 		#end
 
-		app.meta["build"] = "47";
+		app.meta["build"] = "48";
 		app.meta["company"] = "ArrowRoot Games";
 		app.meta["file"] = "game";
 		app.meta["name"] = "";
